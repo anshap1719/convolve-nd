@@ -1,0 +1,43 @@
+[package]
+name = "convolve-nd"
+version = "0.1.0"
+edition = "2021"
+authors = ["Anshul Sanghi <anshul@anshulsanghi.tech>"]
+description = "A small library to perform convolution operations on arrays of upto 3 dimensions using arbitrarily-sized separable kernels"
+homepage = "https://github.com/anshap1719/convolve-nd"
+repository = "https://github.com/anshap1719/convolve-nd"
+keywords = ["image", "audio", "convolution", "kernel", "analysis"]
+categories = ["multimedia"]
+license = "Apache-2.0"
+readme = "./README.md"
+
+[[example]]
+name = "1d"
+path = "examples/1d.rs"
+
+[[example]]
+name = "audio"
+path = "examples/audio.rs"
+
+[[example]]
+name = "image-monochrome"
+path = "examples/image_monochrome.rs"
+
+[[example]]
+name = "image-color"
+path = "examples/image_color.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ndarray = { version = "0.16.1" }
+
+[dev-dependencies]
+hound = "3.5.1"
+image = { version = "0.25.5" }
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
+opt-level = 3
